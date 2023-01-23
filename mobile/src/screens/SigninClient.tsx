@@ -6,21 +6,21 @@ import BackgroundImg from "@assets/background.png";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
-import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
 import { Controller, useForm } from "react-hook-form";
 import { useAuth } from "@hooks/useAuth";
 import { AppError } from "@utils/AppError";
 import { useState } from "react";
+import { ClientRoutesProps } from "@routes/flow.client.routes";
 
 interface FormData {
   email: string;
   password: string;
 }
 
-export function Signin() {
+export function SigninClient() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const { navigate } = useNavigation<ClientRoutesProps>();
 
   const toast = useToast();
 
@@ -33,7 +33,7 @@ export function Signin() {
   } = useForm<FormData>();
 
   function handleNewAccount() {
-    navigate("signUp");
+    navigate("SignUpClient");
   }
 
   async function handleSignIn({ email, password }: FormData) {
@@ -83,7 +83,7 @@ export function Signin() {
 
         <Center>
           <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-            Acesse sua conta
+            Acesse sua conta como Cliente
           </Heading>
 
           <Controller

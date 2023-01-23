@@ -11,7 +11,6 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "@services/api";
-import axios from "axios";
 import { AppError } from "@utils/AppError";
 import { useState } from "react";
 import { useAuth } from "@hooks/useAuth";
@@ -36,7 +35,7 @@ const signUpSchema = yup.object({
     .oneOf([yup.ref("password"), null], "As senhas não são iguais"),
 });
 
-export function SignUp() {
+export function SignUpClient() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { signIn } = useAuth();
@@ -113,7 +112,7 @@ export function SignUp() {
 
         <Center>
           <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-            Crie sua conta
+            Crie sua conta como Cliente
           </Heading>
 
           <Controller
